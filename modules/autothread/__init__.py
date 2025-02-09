@@ -24,7 +24,7 @@ class MainClass(BaseClassPython):
 		self.config["color"] = 0x840052 # Kernel's unique color
 		
 		self.ongoing_clean = False
-		
+
 		if self.objects.save_exists("athchannels_db"):
 			self.athchannels = self.objects.load_object("athchannels_db")
 		else:
@@ -63,6 +63,7 @@ class MainClass(BaseClassPython):
 				return
 	
 	async def on_guild_channel_delete(self, channel):
+
 		if str(channel.id) in self.athchannels:
 			self.athchannels.pop(str(message.channel.id))
 			self.saveATHChannels()
@@ -86,7 +87,7 @@ class MainClass(BaseClassPython):
 			await message.channel.send("Salon retiré.")
 		else:
 			await message.channel.send("Le salon n'est pas enregistré dans Autothread.")
-
+      
 	async def com_list(self, message, args, kwargs):
 
 		channel_list = ""
